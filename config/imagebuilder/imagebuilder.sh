@@ -64,7 +64,7 @@ download_imagebuilder() {
     echo -e "${STEPS} Start downloading OpenWrt files..."
 
     # Downloading imagebuilder files
-    download_file="https://downloads.${op_sourse}.org/releases/${op_branch}/targets/armsr/armv8/${op_sourse}-imagebuilder-${op_branch}-armsr-armv8.Linux-x86_64.tar.xz"
+    download_file="https://downloads.${op_sourse}.org/releases/${op_branch}/targets/armsr/armv8/${op_sourse}-imagebuilder-${op_branch}-armsr-armv8.Linux-x86_64.tar.zst"
     curl -fsSOL ${download_file}
     [[ "${?}" -eq "0" ]] || error_msg "Download failed: [ ${download_file} ]"
 
@@ -120,8 +120,6 @@ custom_packages() {
     curl -fsSOJL ${amlogic_plugin_down}
     [[ "${?}" -eq "0" ]] || error_msg "[ ${amlogic_plugin} ] download failed!"
     echo -e "${INFO} The [ ${amlogic_plugin} ] is downloaded successfully."
-    #
-    # Download other luci-app-xxx
     # ......
 
     sync && sleep 3
